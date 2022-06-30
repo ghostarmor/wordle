@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body onload="startGame()">
+    <h1 class="title">Wordle</h1>
+    <hr class="header-break">
+    <div class="wordle-board">
+        <div class="wordle-row">
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+        </div>
+        <div class="wordle-row">
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+        </div>
+        <div class="wordle-row">
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+        </div>
+        <div class="wordle-row">
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+        </div>
+        <div class="wordle-row">
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+        </div>
+        <div class="wordle-row">
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+            <div class="wordle-box"></div>
+        </div>
+    </div>
+
+    <div class="keyboard">
+        <div class="k-row">
+            <button class="k-button" onclick="keyPressed(this.innerText)">q</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">w</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">e</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">r</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">t</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">y</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">u</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">i</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">o</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">p</button>
+        </div>
+        <div class="k-row">
+            <button class="k-button" onclick="keyPressed(this.innerText)">a</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">s</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">d</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">f</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">g</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">h</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">j</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">k</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">l</button>
+        </div>
+        <div class="k-row">
+            <button class="k-button" onclick="keyPressed(this.innerText)">enter</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">z</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">x</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">c</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">v</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">b</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">n</button>
+            <button class="k-button" onclick="keyPressed(this.innerText)">m</button>
+            <button class="k-button" onclick="keyPressed('BACKSPACE')">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="game-icon" data-testid="icon-backspace"><path fill="var(--color-tone-1)" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"></path></svg>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

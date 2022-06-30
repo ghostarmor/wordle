@@ -1,0 +1,83 @@
+.title{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+}
+
+.header-break{
+    opacity: 40%;
+    position: relative;
+    bottom: 20px;
+}
+
+.wordle-board{
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    row-gap: 10px;
+    box-sizing: border-box;
+    place-items: center;
+    margin-top: 60px;
+}
+
+.wordle-row{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+    
+}
+
+.wordle-box{
+    display: block;
+    background-color: transparent;
+    border: 2px solid rgb(90, 90, 90);
+    width: 62.5px;
+    height: 62.5px;
+    line-height: 62.5px;
+    vertical-align: middle;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 36px;
+}
+
+
+
+
+
+.keyboard{
+    margin-top: 35px;
+}
+
+.k-row{
+    display: flex;
+    width: 25%;
+    margin: 0 auto 8px;
+    touch-action: manipulation;
+}
+
+.k-button{
+    font-weight: bold;
+    margin: 0 6px 0 0;
+    height: 65px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #707070;
+    color: white;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+
+
+
+
+body{
+    background-color: #111113;
+}
