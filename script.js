@@ -3,6 +3,7 @@ let currentLetter;
 let boardArray = [];
 let correctWord;
 let wordsArr = [];
+let allowed = [];
 let rows = [];
 let map;
 let lettersCount = new Map();
@@ -65,6 +66,12 @@ function startGame() {
     rows = document.getElementsByClassName("wordle-row");
     boardArray = ["", "", "", "", "", ""];
     correctWord = "";
+
+    fetch("allowed.txt").then(response => response.text()).then(text => {
+        allowed = text.split("\n");
+        allowed = allowed.map(str => str.trim());
+    });
+
     fetch('library.txt').then(response => response.text()).then(data => {
         wordsArr = data.split('\n');
         correctWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
@@ -84,7 +91,7 @@ function startGame() {
 }
 
 function submitTry(word) {
-    if (!wordsArr.includes(word.toLowerCase())) {
+    if (!allowed.includes(word.toLowerCase()) && !wordsArr.includes(word.toLowerCase())) {
         alert("Word does not exist!");
         return false;
     }
