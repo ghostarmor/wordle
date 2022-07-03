@@ -9,6 +9,7 @@ let map;
 let lettersCount = new Map();
 let reconfirmList = new Map();
 let colorPriority = new Map();
+let scoreSystem = new Map();
 
 
 document.addEventListener("keydown", function(){
@@ -52,6 +53,13 @@ function startGame() {
         keyboardKeys[i].id = keyboardKeys[i].innerText;
     }
 
+
+    scoreSystem.set("1", 6);
+    scoreSystem.set("2", 5);
+    scoreSystem.set("3", 4);
+    scoreSystem.set("4", 3);
+    scoreSystem.set("5", 2);
+    scoreSystem.set("6", 1);
 
     colorPriority.set("rgb(83, 141, 78)", 3);
     colorPriority.set("#538d4e", 3);
@@ -102,10 +110,12 @@ function submitTry(word) {
         if (word.toLowerCase().trim() === correctWord.toLowerCase().trim()) {
             if(localStorage.getItem("wordle_streak") === null){
                 localStorage.setItem("wordle_streak", 1);
+                localStorage.setItem("wordle_score", scoreSystem.get(JSON.stringify(currentTry)));
             } else{
                 localStorage.setItem("wordle_streak", parseInt(localStorage.getItem("wordle_streak")) + 1);
+                localStorage.setItem("wordle_score", parseInt(localStorage.getItem("wordle_score")) + (scoreSystem.get(JSON.stringify(currentTry)) * parseInt(localStorage.getItem("wordle_streak"))));
             }
-            alert("Wordle Complete! Streak: " + localStorage.getItem("wordle_streak"));
+            alert("Wordle Complete! \nScore: " + localStorage.getItem("wordle_score") + "\nStreak: " + localStorage.getItem("wordle_streak"));
             if (confirm("Play again?")) {
                 location.reload();
             }
