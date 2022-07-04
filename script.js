@@ -136,6 +136,7 @@ function submitTry(word) {
         if (currentTry === 6) {
             alert("Wordle lost! Correct answer: " + correctWord);
             localStorage.setItem("wordle_streak", 0);
+            localStorage.setItem("wordle_score", 0);
             if (confirm("Play again?")) {
                 location.reload();
             }
