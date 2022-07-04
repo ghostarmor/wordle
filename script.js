@@ -12,6 +12,10 @@ let colorPriority = new Map();
 let scoreSystem = new Map();
 
 
+var submitDelay = 200;
+var lastSubmit = 0;
+
+
 document.addEventListener("keydown", function(){
     keyPressed(event.keyCode);
 });
@@ -99,6 +103,13 @@ function startGame() {
 }
 
 function submitTry(word) {
+
+    if(lastSubmit + submitDelay > Date.now()) {
+        return;
+    }
+    lastSubmit = Date.now();
+
+
     if (!allowed.includes(word.toLowerCase()) && !wordsArr.includes(word.toLowerCase())) {
         alert("Word does not exist!");
         return false;
