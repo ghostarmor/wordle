@@ -119,14 +119,17 @@ function submitTry(word) {
     setTimeout(function () {
         //console.log(word + " , " + correctWord);
         if (word.toLowerCase().trim() === correctWord.toLowerCase().trim()) {
+            let pointsWon;
             if(localStorage.getItem("wordle_streak") === null){
                 localStorage.setItem("wordle_streak", 1);
-                localStorage.setItem("wordle_score", scoreSystem.get(JSON.stringify(currentTry)));
+                pointsWon = scoreSystem.get(JSON.stringify(currentTry));
+                localStorage.setItem("wordle_score", pointsWon);
             } else{
                 localStorage.setItem("wordle_streak", parseInt(localStorage.getItem("wordle_streak")) + 1);
-                localStorage.setItem("wordle_score", parseInt(localStorage.getItem("wordle_score")) + (scoreSystem.get(JSON.stringify(currentTry)) * parseInt(localStorage.getItem("wordle_streak"))));
+                pointsWon = scoreSystem.get(JSON.stringify(currentTry)) * parseInt(localStorage.getItem("wordle_streak"));
+                localStorage.setItem("wordle_score", parseInt(localStorage.getItem("wordle_score")) + pointsWon);
             }
-            alert("Wordle Complete! \nScore: " + localStorage.getItem("wordle_score") + "\nStreak: " + localStorage.getItem("wordle_streak"));
+            alert("Wordle Complete! \n+" + pointsWon + " points\nScore: " + localStorage.getItem("wordle_score") + "\nStreak: " + localStorage.getItem("wordle_streak"));
             if (confirm("Play again?")) {
                 location.reload();
             }
