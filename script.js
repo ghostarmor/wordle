@@ -137,9 +137,9 @@ function submitTry(word) {
         }
 
         if (currentTry === 6) {
-            alert("Wordle lost! Correct answer: " + correctWord);
             localStorage.setItem("wordle_streak", 0);
-            localStorage.setItem("wordle_score", 0);
+            localStorage.setItem("wordle_score", Math.round(localStorage.getItem("wordle_score") / 2));
+            alert("Wordle lost! Correct answer: " + correctWord + "\nScore: " + localStorage.getItem("wordle_score") + "\nStreak: " + localStorage.getItem("wordle_streak"));
             if (confirm("Play again?")) {
                 location.reload();
             }
